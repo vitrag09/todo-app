@@ -3,28 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Todo List</title>
+    <title>Kanban Board</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Todo List</h1>
-        <div class="todo-input">
-            <input type="text" id="taskInput" placeholder="What needs to be done?">
-            <button id="addTask">
-                <i class="fas fa-plus"></i>
-            </button>
+        <div class="add-task">
+            <input type="text" id="taskInput" placeholder="Add a new task... (Press Enter)" maxlength="200">
         </div>
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="active">Active</button>
-            <button class="filter-btn" data-filter="completed">Completed</button>
+        <div class="task-summary">
+            <div class="summary-item todo">
+                <span class="count">0</span>
+                <span class="label">To Do</span>
+            </div>
+            <div class="summary-item in-progress">
+                <span class="count">0</span>
+                <span class="label">In Progress</span>
+            </div>
+            <div class="summary-item done">
+                <span class="count">0</span>
+                <span class="label">Done</span>
+            </div>
+            <div class="summary-item total">
+                <span class="count">0</span>
+                <span class="label">Total</span>
+            </div>
         </div>
-        <ul id="todoList"></ul>
-        <div class="todo-stats">
-            <span id="taskCount">0 items left</span>
-            <button id="clearCompleted">Clear completed</button>
+        <div class="board">
+            <div class="column" data-stage="todo">
+                <div class="column-header">
+                    <div class="header-left">
+                        <h2>To Do</h2>
+                        <span class="task-count">0</span>
+                    </div>
+                    <button class="collapse-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="tasks" data-stage="todo"></div>
+            </div>
+            <div class="column" data-stage="inProgress">
+                <div class="column-header">
+                    <div class="header-left">
+                        <h2>In Progress</h2>
+                        <span class="task-count">0</span>
+                    </div>
+                    <button class="collapse-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="tasks" data-stage="inProgress"></div>
+            </div>
+            <div class="column" data-stage="done">
+                <div class="column-header">
+                    <div class="header-left">
+                        <h2>Done</h2>
+                        <span class="task-count">0</span>
+                    </div>
+                    <button class="collapse-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="tasks" data-stage="done"></div>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>
